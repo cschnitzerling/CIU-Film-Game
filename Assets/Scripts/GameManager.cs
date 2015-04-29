@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 		if(players.Length != 2) Debug.LogError("MUST BE TWO PLAYERS!! FUCK!");
 		for(int i = 0; i < players.Length; i++){
 			players[i].id = i;
-			players[i].movementEnabled = false;
+			players[i].inputEnabled = false;
 		}
 	}
 
@@ -32,7 +32,11 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 
 		foreach(var p in players){
-			p.movementEnabled = true;
+			p.inputEnabled = true;
 		}
+	}
+
+	public void OnPlayerDeath(int id){
+		UIManager.main.ShowBanner("Player " + (1-id).ToString());
 	}
 }
