@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 	[SerializeField] private float speed = 1f;
 
 	[HideInInspector] public int id = 0;
+	public bool movementEnabled = false;
 	public float health = 1f;
 
 	private Transform t;
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour {
 	}
 	
 	void Update () {
+
+		if(!movementEnabled) return;
 		var move = new Vector3(
 			Input.GetAxis("Horizontal"+id.ToString()),
 			0f,
