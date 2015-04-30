@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour {
 	private Animator bannerAnim;
 	private TextMesh bannerText;
 
+	public TextMesh roundText;
+
 	public Transform[] healthBars;
 
 	void Awake(){
@@ -32,6 +34,8 @@ public class UIManager : MonoBehaviour {
 
 		healthBars[1].localPosition = new Vector3(0.5f - h2/2f, 0f, -0.1f);
 		healthBars[1].localScale = new Vector3(h2, 1f, 1f);
+
+		roundText.text = PersistentData.main.round.ToString();
 	}
 
 	public void ShowBanner(string s){
