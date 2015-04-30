@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
 		campos = go.transform;
 		campos.position = Camera.main.transform.position;
 
+		PersistentData.main.round++;
+
 		StartCoroutine(StartCountdown());
 	}
 
@@ -57,10 +59,26 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void OnPlayerDeath(int id){
-		UIManager.main.ShowBanner("Player " + (1-id).ToString());
+		UIManager.main.ShowBanner("Player " + (1-id).ToString() + "\nWins");
+
+		if(PersistentData.main.round < 3){
+			RunAfterDelay(1f, () => Application.LoadLevel("main"));
+		}else{
+			RunAfterDelay(1f, () => Application.LoadLevel("start"));
+		}
 	}
 
 	public void ScreenShake(float amt = 1f){
 		screenshake = Mathf.Max(0f, screenshake) + amt;
+	}
+
+	public delegate void DelayRunDel();
+	public void RunAfterDelay(float time, DelayRunDel del){
+		StartCoroutine(_RunAfterDelayImpl(time, del));
+	}
+
+	private IEnumerator _RunAfterDelayImpl(float time, DelayRunDel del){
+		yield return new WaitForSeconds(time);
+		del();
 	}
 }
