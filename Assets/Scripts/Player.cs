@@ -61,6 +61,6 @@ public class Player : MonoBehaviour {
 		var otherPlayer = GameManager.main.players[1-id];
 		otherPlayer.health -= 0.1f;
 
-		GameManager.main.ScreenShake(1f);
+		GameManager.main.ScreenShake(0.2f);
 	}
 }
