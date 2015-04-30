@@ -36,15 +36,12 @@ public class Player : MonoBehaviour {
 		if(!inputEnabled) return;
 		var ids = id.ToString();
 
-		var move = new Vector3(
-			Input.GetAxis("Horizontal"+ids),
-			0f,
-			Input.GetAxis("Vertical"+ids));
-
 		if(attackTimeout < 0f && Input.GetButtonDown("Attack"+ids)){
 			Attack();
 			attackTimeout = attackCooldown;
 		}
+
+		var move = Vector3.right * Input.GetAxis("Horizontal"+ids);
 
 		r.velocity = move * speed;
 	}
@@ -63,5 +60,7 @@ public class Player : MonoBehaviour {
 
 		var otherPlayer = GameManager.main.players[1-id];
 		otherPlayer.health -= 0.1f;
+
+		GameManager.main.ScreenShake(1f);
 	}
 }

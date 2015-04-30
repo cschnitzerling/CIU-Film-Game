@@ -8,14 +8,30 @@ public class UIManager : MonoBehaviour {
 	private Animator bannerAnim;
 	private TextMesh bannerText;
 
+	public Transform[] healthBars;
+
 	void Awake(){
 		main = this;
 		bannerAnim = banner.GetComponent<Animator>();
 		bannerText = banner.GetComponentInChildren<TextMesh>();
+
+		if(healthBars.Length != 2){
+			Debug.LogError("Need two healthbars");
+		}
 	}
 
-	void Start(){
+	void Update(){
+		var h1 = GameManager.main.players[0].health;
+		var h2 = GameManager.main.players[1].health;
 
+		h1 = Mathf.Clamp(h1, 0f, 1f);
+		h2 = Mathf.Clamp(h2, 0f, 1f);
+
+		healthBars[0].localPosition = new Vector3(h1/2f - 0.5f, 0f, -0.1f);
+		healthBars[0].localScale = new Vector3(h1, 1f, 1f);
+
+		healthBars[1].localPosition = new Vector3(0.5f - h2/2f, 0f, -0.1f);
+		healthBars[1].localScale = new Vector3(h2, 1f, 1f);
 	}
 
 	public void ShowBanner(string s){
