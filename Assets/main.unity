@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   id: 0
-  inputEnabled: 1
+  inputEnabled: 0
   health: 1
   attackCooldown: .100000001
 --- !u!65 &370338801
@@ -781,7 +781,7 @@ Animator:
   m_GameObject: {fileID: 1019240293}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c1998660e55bf7b489f438155c33b8c4, type: 2}
+  m_Controller: {fileID: 9100000, guid: f6778703e5a9d0149b55269aea5062f0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -813,7 +813,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 133c87fa29e9c9141b971cb7a8debf65, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b62814b96da0764aa016913ec6fde0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1076194438
 GameObject:
