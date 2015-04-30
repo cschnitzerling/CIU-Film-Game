@@ -48,9 +48,9 @@ public class Player : MonoBehaviour {
 
 		r.velocity = move * speed;
 
-		//Animation Set Walk or Idle//////////////
-		anim.SetFloat ("Float_Speed",Mathf.Abs(move.x)*speed);  //
-		////////////////////////////////////////
+		//Animation Set Walk or Idle///////////////////////////////
+		anim.SetFloat ("Float_Speed", Mathf.Abs(move.x)*speed); //
+		/////////////////////////////////////////////////////////
 	}
 
 	void OnTriggerStay(Collider col){
@@ -62,12 +62,12 @@ public class Player : MonoBehaviour {
 	}
 
 	void Attack(){
-		if(!enemyInRange) return;
-		print("Attack " + id.ToString());
-
 		//Animation Punch Trigger///////////////////
 		anim.SetTrigger("Trig_Punch");			 //
 		//////////////////////////////////////////
+
+		if(!enemyInRange) return;
+		print("Attack " + id.ToString());
 
 		var otherPlayer = GameManager.main.players[1-id];
 		otherPlayer.health -= 0.1f;
