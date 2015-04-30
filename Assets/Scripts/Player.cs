@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
 		r.velocity = move * speed;
 
 		//Animation Set Walk or Idle//////////////
-		anim.SetFloat ("Float_Speed",move.x);  //
+		anim.SetFloat ("Float_Speed",Mathf.Abs(move.x)*speed);  //
 		////////////////////////////////////////
 	}
 
@@ -68,7 +68,6 @@ public class Player : MonoBehaviour {
 		//Animation Punch Trigger///////////////////
 		anim.SetTrigger("Trig_Punch");			 //
 		//////////////////////////////////////////
-
 
 		var otherPlayer = GameManager.main.players[1-id];
 		otherPlayer.health -= 0.1f;
