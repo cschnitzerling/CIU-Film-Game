@@ -18,9 +18,12 @@ public class Player : MonoBehaviour {
 	private Transform t;
 	private Rigidbody r;
 
+	private Animator anim;
+
 	void Awake () {
 		t = transform;
 		r = GetComponent<Rigidbody>();
+		anim = GetComponentInChildren<Animator>();
 	}
 	
 	void Update () {
@@ -44,6 +47,10 @@ public class Player : MonoBehaviour {
 		var move = Vector3.right * Input.GetAxis("Horizontal"+ids);
 
 		r.velocity = move * speed;
+
+		//Animation Set Walk or Idle//////////////
+		anim.SetFloat ("Float_Speed",move.x);  //
+		////////////////////////////////////////
 	}
 
 	void OnTriggerStay(Collider col){
@@ -57,6 +64,11 @@ public class Player : MonoBehaviour {
 	void Attack(){
 		if(!enemyInRange) return;
 		print("Attack " + id.ToString());
+
+		//Animation Punch Trigger///////////////////
+		anim.SetTrigger("Trig_Punch");			 //
+		//////////////////////////////////////////
+
 
 		var otherPlayer = GameManager.main.players[1-id];
 		otherPlayer.health -= 0.1f;
