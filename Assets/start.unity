@@ -182,6 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   round: 0
+  p1sprite: 0
+  p2sprite: 0
 --- !u!4 &39206825
 Transform:
   m_ObjectHideFlags: 0
@@ -361,7 +363,7 @@ RectTransform:
   m_GameObject: {fileID: 334015975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 1821956612}
   - {fileID: 764568319}
@@ -687,7 +689,7 @@ RectTransform:
   m_GameObject: {fileID: 764568318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 334015976}
   m_RootOrder: 1
@@ -1384,7 +1386,7 @@ RectTransform:
   m_GameObject: {fileID: 1821956611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 334015976}
   m_RootOrder: 0

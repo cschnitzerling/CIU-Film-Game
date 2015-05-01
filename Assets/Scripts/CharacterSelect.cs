@@ -46,6 +46,8 @@ public class CharacterSelect : MonoBehaviour {
 		if(Input.GetButtonDown("Attack1")) p2ready = true;
 
 		if(p1ready && p2ready){
+			PersistentData.main.p1sprite = p1select;
+			PersistentData.main.p2sprite = p2select;
 			FindObjectOfType<MainMenu>().StartGame();
 		}
 	}

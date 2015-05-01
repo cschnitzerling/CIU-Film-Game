@@ -13,9 +13,7 @@ public class MainMenu : MonoBehaviour {
 		if(Input.GetButtonDown("Start")){
 			if(currentMenu == 0){
 				SetMenu(1);
-			}/*else{
-				StartGame();
-			}*/
+			}
 		}
 
 		if(Input.GetButtonDown("Back")){
@@ -38,7 +36,7 @@ public class MainMenu : MonoBehaviour {
 	public void SetMenu(int m){
 		for(int i = 0; i < menus.Length; i++){
 			menus[i].SendMessage("SetOpen", i == m);
-			
+
 			if(i == m){
 				currentMenu = m;
 			}
