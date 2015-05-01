@@ -78,9 +78,10 @@ public class GameManager : MonoBehaviour {
 		}
 
 		yield return new WaitForSeconds(1f);
+		GetComponent<AudioSource>().Play();
 		// Start police lights/sounds
 
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(3f);
 		UIManager.main.ShowBanner("Player " + (1-id).ToString() + "\nwas arrested");
 
 		yield return new WaitForSeconds(2f);
