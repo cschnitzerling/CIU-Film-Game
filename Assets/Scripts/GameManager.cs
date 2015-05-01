@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour {
 	public GameObject background;
 	private float screenshake = 0f;
 
+	public AudioClip punch;
+	public AudioClip roundStart;
+
 	void Awake(){
 		main = this;
 		if(players.Length != 2) Debug.LogError("MUST BE TWO PLAYERS!! FUCK!");
@@ -35,7 +38,7 @@ public class GameManager : MonoBehaviour {
 
 		players[0].GetComponentInChildren<Animator>().runtimeAnimatorController = characters[PersistentData.main.p1sprite];
 		players[1].GetComponentInChildren<Animator>().runtimeAnimatorController = characters[PersistentData.main.p2sprite];
-		
+
 		background.GetComponent<Renderer>().material = backgroundMats[PersistentData.main.round%backgroundMats.Length];
 		PersistentData.main.round++;
 
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		ScreenShake(1f);
 		UIManager.main.ShowBanner("Fight!");
+		AudioSource.PlayClipAtPoint(roundStart, transform.position);
 		yield return new WaitForSeconds(1f);
 
 		foreach(var p in players){

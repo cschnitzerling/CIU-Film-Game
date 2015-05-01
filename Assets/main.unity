@@ -1547,6 +1547,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ddab75ab3e10d744fa8d12c9a7430880, type: 2}
   - {fileID: 2100000, guid: 7d86ef95b17d72e4d9640e6c185a75c6, type: 2}
   background: {fileID: 285577517}
+  punch: {fileID: 8300000, guid: 8c85fdb2cabfa464bbdfb90e8f26102e, type: 3}
+  roundStart: {fileID: 8300000, guid: 6e565755d9e5ffb4181abbe5fb225205, type: 3}
 --- !u!4 &1873817748
 Transform:
   m_ObjectHideFlags: 0
