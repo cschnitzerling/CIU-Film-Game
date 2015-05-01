@@ -63,13 +63,28 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void OnPlayerDeath(int id){
-		UIManager.main.ShowBanner("Player " + (1-id).ToString() + "\nWins");
-
 		if(PersistentData.main.round < 3){
+			UIManager.main.ShowBanner("Player " + (1-id).ToString() + "\nWon");
 			RunAfterDelay(1f, () => Application.LoadLevel("main"));
 		}else{
-			RunAfterDelay(1f, () => Application.LoadLevel("start"));
+			StartCoroutine(GameCompleteSequence(id));
 		}
+	}
+
+	IEnumerator GameCompleteSequence(int id){
+		PersistentData.main.round = 0;
+		foreach(var p in players){
+			p.inputEnabled = false;
+		}
+
+		yield return new WaitForSeconds(1f);
+		// Start police lights/sounds
+
+		yield return new WaitForSeconds(5f);
+		UIManager.main.ShowBanner("Player " + (1-id).ToString() + "\nwas arrested");
+
+		yield return new WaitForSeconds(2f);
+		Application.LoadLevel("start");
 	}
 
 	public void ScreenShake(float amt = 1f){
