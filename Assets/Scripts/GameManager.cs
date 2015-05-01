@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour {
 	public Player[] players;
 	private Transform campos;
 
+	public Material overlay;
+	public Gradient policeLightColors;
+	private bool showLights = false;
+
 	private float screenshake = 0f;
 
 	void Awake(){
@@ -18,6 +22,8 @@ public class GameManager : MonoBehaviour {
 			players[i].id = i;
 			players[i].inputEnabled = false;
 		}
+
+		overlay.color = new Color(0f, 0f, 0f, 0f);
 	}
 
 	void Start(){
@@ -39,6 +45,10 @@ public class GameManager : MonoBehaviour {
 		var ct = Camera.main.transform;
 		ct.position = campos.position + 
 			(ct.up * Mathf.Sin(Time.time*Time.time*1000f) + ct.right * Mathf.Cos(Time.time*Time.time*1000f)) * ss;
+
+		if(showLights){
+			overlay.color = policeLightColors.Evaluate(Mathf.PingPong(Time.time, 1f));
+		}
 	}
 
 	IEnumerator StartCountdown(){
@@ -79,7 +89,7 @@ public class GameManager : MonoBehaviour {
 
 		yield return new WaitForSeconds(1f);
 		GetComponent<AudioSource>().Play();
-		// Start police lights/sounds
+		showLights = true;
 
 		yield return new WaitForSeconds(3f);
 		UIManager.main.ShowBanner("Player " + (1-id).ToString() + "\nwas arrested");
