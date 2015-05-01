@@ -1416,6 +1416,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb98c9c5424cbd74ea26141eb185fbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characters:
+  - {fileID: 9100000, guid: c1998660e55bf7b489f438155c33b8c4, type: 2}
+  - {fileID: 9100000, guid: f6778703e5a9d0149b55269aea5062f0, type: 2}
   players:
   - {fileID: 370338799}
   - {fileID: 284845746}
@@ -1459,3 +1462,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   round: 0
+  p1sprite: 0
+  p2sprite: 0

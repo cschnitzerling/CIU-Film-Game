@@ -4,6 +4,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 	static public GameManager main;
 
+	public RuntimeAnimatorController[] characters;
+
 	public Player[] players;
 	private Transform campos;
 
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour {
 		campos = go.transform;
 		campos.position = Camera.main.transform.position;
 
+		players[0].GetComponentInChildren<Animator>().runtimeAnimatorController = characters[PersistentData.main.p1sprite];
+		players[1].GetComponentInChildren<Animator>().runtimeAnimatorController = characters[PersistentData.main.p2sprite];
 		PersistentData.main.round++;
 
 		StartCoroutine(StartCountdown());
