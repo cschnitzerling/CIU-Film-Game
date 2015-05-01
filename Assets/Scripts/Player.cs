@@ -72,8 +72,6 @@ public class Player : MonoBehaviour {
 		var otherPlayer = GameManager.main.players[1-id];
 		otherPlayer.health -= 0.1f;
 
-		AudioSource.PlayClipAtPoint(GameManager.main.punch, t.position);
-
 		GameManager.main.ScreenShake(0.2f);
 	}
 }
