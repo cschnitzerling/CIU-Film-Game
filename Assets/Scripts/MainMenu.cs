@@ -44,6 +44,8 @@ public class MainMenu : MonoBehaviour {
 
 		if(m == 1){
 			FindObjectOfType<CharacterSelect>().enabled = true;
+		}else{
+			FindObjectOfType<CharacterSelect>().enabled = false;
 		}
 	}
 }
