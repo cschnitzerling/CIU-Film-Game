@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 	public Gradient policeLightColors;
 	private bool showLights = false;
 
+	public Material[] backgroundMats;
+	public GameObject background;
 	private float screenshake = 0f;
 
 	void Awake(){
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour {
 
 		players[0].GetComponentInChildren<Animator>().runtimeAnimatorController = characters[PersistentData.main.p1sprite];
 		players[1].GetComponentInChildren<Animator>().runtimeAnimatorController = characters[PersistentData.main.p2sprite];
+		
+		background.GetComponent<Renderer>().material = backgroundMats[PersistentData.main.round%backgroundMats.Length];
 		PersistentData.main.round++;
 
 		StartCoroutine(StartCountdown());
