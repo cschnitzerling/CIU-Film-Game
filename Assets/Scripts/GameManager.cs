@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	public Gradient policeLightColors;
 	private bool showLights = false;
 
+	public AudioClip punch;
 	private float screenshake = 0f;
 
 	void Awake(){
