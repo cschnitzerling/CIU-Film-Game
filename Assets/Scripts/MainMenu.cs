@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	void Update(){
-		if(Input.GetButtonDown("Start")){
+		if(Input.GetButtonDown("Attack0") || Input.GetButtonDown("Attack1")){
 			if(currentMenu == 0){
 				SetMenu(1);
 			}

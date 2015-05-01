@@ -11,8 +11,8 @@ public class CharacterSelect : MonoBehaviour {
 	private bool p1ready = false;
 	private bool p2ready = false;
 
-	private float p1stimeout = 0f;
-	private float p2stimeout = 0f;
+	private float p1stimeout = 1f;
+	private float p2stimeout = 1f;
 
 	void Start(){
 		UpdateSelection(p1selections, p1select);
@@ -42,8 +42,14 @@ public class CharacterSelect : MonoBehaviour {
 			p2stimeout = 0.2f;
 		}
 
-		if(Input.GetButtonDown("Attack0")) p1ready = true;
-		if(Input.GetButtonDown("Attack1")) p2ready = true;
+		if(p1stimeout <= 0f && Input.GetButtonDown("Attack0")) {
+			p1selections[p1select].GetComponent<Animator>().SetTrigger("final");
+			p1ready = true;
+		}
+		if(p2stimeout <= 0f && Input.GetButtonDown("Attack1")) {
+			p2selections[p2select].GetComponent<Animator>().SetTrigger("final");
+			p2ready = true;
+		}
 
 		if(p1ready && p2ready){
 			PersistentData.main.p1sprite = p1select;
